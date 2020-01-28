@@ -22,21 +22,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class FieldController {
-    @Autowired
-    JobLauncher jobLauncher;
-    @Qualifier("JobSave")
-    @Autowired
-    Job jobSave;
-    @Qualifier("JobGet")
-    @Autowired
-    Job JobGetField;
-    @Autowired
-    private ElasticseachUtil elasticseachUtil;
 
-
-    @Autowired
-    private Models models;
-    ObjectMapper mapper = new ObjectMapper();
     String[] audits = {"@timestamp","@version","ACCESS_ID","ACCOUNT_FROM","ACCOUNT_FROM_NAME",
             "ACCOUNT_TO_NAME","ACCOUNT_TYPE","ACCURACY","ADDITIONAL_DATA","AMOUNT",
             "APP_VERSION","BANK_CODE","BARCODE_STRING","BARCODE_TYPE","BILLER_CATEGORY",
