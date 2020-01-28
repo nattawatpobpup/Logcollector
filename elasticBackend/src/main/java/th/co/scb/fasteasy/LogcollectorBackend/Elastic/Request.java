@@ -55,7 +55,7 @@ public class Request {
     public void source(String[] is,String[]key,String[]value,String[]type,String gte,String lte) throws Exception {
 
         checkDate(gte,"start");
-        checkDate(lte,"final");
+        checkDate(lte,"end");
 
         for (int i=0;i<value.length;i++){
             if(i!=0){
@@ -75,11 +75,11 @@ public class Request {
         if(!date.matches("([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})")) {
 
             if (date.matches(" :([0-9]{2})")||date.matches("")) {
-                throw new Exception("please insert day-time "+status);
+                throw new Exception("please insert "+status+" day-time");
             } else if (date.matches("([0-9]{4})-([0-9]{2})-([0-9]{2}) :([0-9]{2})")||date.matches("([0-9]{4})-([0-9]{2})-([0-9]{2}) ")) {
-                throw new Exception("please insert time "+status);
+                throw new Exception("please insert " + status+ " time");
             } else if (date.matches(" ([0-9]{2}):([0-9]{2}):([0-9]{2})")){
-                throw new Exception("please insert day "+status);
+                throw new Exception("please insert " + status+ " day");
             }
 
         }

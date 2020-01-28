@@ -68,35 +68,35 @@ public class RequestTest {
     public void testCheckDateIsNotHaveDay() throws Exception {
         Exception thrown = assertThrows(Exception.class,
                 () -> request.checkDate(" 00:00:00", "start"));
-        assertEquals("please insert day start", thrown.getMessage());
+        assertEquals("please insert start day", thrown.getMessage());
     }
 
     @Test
     public void testCheckDateIsNotHaveTime() throws Exception {
         Exception thrown = assertThrows(Exception.class,
                 () -> request.checkDate("2020-01-01 ", "start"));
-        assertEquals("please insert time start", thrown.getMessage());
+        assertEquals("please insert start time", thrown.getMessage());
     }
 
     @Test
     public void testCheckDateIsNotHaveTime2() throws Exception {
         Exception thrown = assertThrows(Exception.class,
                 () -> request.checkDate("2020-01-01 :00", "start"));
-        assertEquals("please insert time start", thrown.getMessage());
+        assertEquals("please insert start time", thrown.getMessage());
     }
 
     @Test
     public void testCheckDateIsNotHaveDate() throws Exception {
         Exception thrown = assertThrows(Exception.class,
                 () -> request.checkDate("", "start"));
-        assertEquals("please insert day-time start", thrown.getMessage());
+        assertEquals("please insert start day-time", thrown.getMessage());
     }
 
     @Test
     public void testCheckDateIsNotHaveDate2() throws Exception {
         Exception thrown = assertThrows(Exception.class,
                 () -> request.checkDate(" :00", "start"));
-        assertEquals("please insert day-time start", thrown.getMessage());
+        assertEquals("please insert start day-time", thrown.getMessage());
     }
 
     @Test
