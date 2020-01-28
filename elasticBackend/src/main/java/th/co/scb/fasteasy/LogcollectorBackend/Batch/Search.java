@@ -12,8 +12,6 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-
-//import javax.json.*;
 import java.util.Deque;
 
 @Slf4j
@@ -25,8 +23,7 @@ public class Search implements Tasklet {
     private ElasticseachUtil elasticseachUtil;
     @Autowired
     private Models models;
-    @Autowired
-    private Request request;
+
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception{
         SearchSourceBuilder createSearchParameter = elasticseachUtil.createSearchParameter(models.getIs(),models.getKey(),
                 models.getValue(),models.getType(),models.getSelect(),models.getGte(),models.getLte());

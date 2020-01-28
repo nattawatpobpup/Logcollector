@@ -29,11 +29,7 @@ public class RequestController {
     @Autowired
     Job JobGetField;
     @Autowired
-    private ElasticseachUtil elasticseachUtil;
-    @Autowired
     private Request request;
-    @Autowired
-    private FieldController fieldController;
     @Autowired
     private Models models;
     ObjectMapper mapper = new ObjectMapper();
