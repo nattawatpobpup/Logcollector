@@ -6,8 +6,6 @@ import th.co.scb.fasteasy.LogcollectorBackend.Model.Models;
 import th.co.scb.fasteasy.LogcollectorBackend.Model.Show;
 import th.co.scb.fasteasy.LogcollectorBackend.Elastic.Request;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Getter @Setter
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class RequestController {

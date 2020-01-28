@@ -1,16 +1,8 @@
 package th.co.scb.fasteasy.LogcollectorBackend.Controller;
 
-
-import th.co.scb.fasteasy.LogcollectorBackend.Elastic.ElasticseachUtil;
 import th.co.scb.fasteasy.LogcollectorBackend.Model.Field;
-import th.co.scb.fasteasy.LogcollectorBackend.Model.Models;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.batch.core.*;
-import org.springframework.batch.core.launch.JobLauncher;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,11 +1,10 @@
 package th.co.scb.fasteasy.LogcollectorBackend.Batch;
 
-//import com.example.elasticsearch.Controller.ShowController;
 import th.co.scb.fasteasy.LogcollectorBackend.Model.Models;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-        import lombok.extern.slf4j.Slf4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
@@ -16,11 +15,9 @@ import org.springframework.stereotype.Component;
 
 import org.springframework.stereotype.Controller;
 
-        import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-
-
-        import java.io.File;
+import java.io.File;
 
 
 @Slf4j
@@ -28,8 +25,6 @@ import java.util.Date;
 @Controller
 
 public class Writer implements Tasklet {
-//    @Autowired
-//    private ShowController showController;
     @Autowired
     private Models models;
     private Date date;
