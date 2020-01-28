@@ -19,7 +19,7 @@ import java.util.Deque;
 @Slf4j
 @Component
 @RestController
-public class Get implements Tasklet {
+public class Search implements Tasklet {
 
     @Autowired
     private ElasticseachUtil elasticseachUtil;
