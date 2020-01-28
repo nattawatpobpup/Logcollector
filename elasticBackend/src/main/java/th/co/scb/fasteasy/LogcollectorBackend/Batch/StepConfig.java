@@ -21,7 +21,7 @@ public class  StepConfig {
     private StepBuilderFactory steps;
 
     @Autowired
-    private Search search;
+    private Get get;
 
     @Autowired
     private Writer writer;
@@ -30,7 +30,7 @@ public class  StepConfig {
     public Step stepGet(){
 
         return steps.get("stepGet")
-                .tasklet(search)
+                .tasklet(get)
                 .build();
     }
     @Bean

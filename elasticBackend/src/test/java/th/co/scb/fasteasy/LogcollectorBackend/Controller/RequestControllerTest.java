@@ -1,6 +1,6 @@
 package th.co.scb.fasteasy.LogcollectorBackend.Controller;
 
-import th.co.scb.fasteasy.LogcollectorBackend.Batch.Search;
+import th.co.scb.fasteasy.LogcollectorBackend.Batch.Get;
 import th.co.scb.fasteasy.LogcollectorBackend.Elastic.Request;
 import th.co.scb.fasteasy.LogcollectorBackend.Model.Models;
 import org.junit.Before;
@@ -28,7 +28,7 @@ public class RequestControllerTest {
     @Mock
     JobLauncher jobLauncher;
     @Mock
-    Search search;
+    Get get;
     @Mock
     Job JobGetField;
     @Mock

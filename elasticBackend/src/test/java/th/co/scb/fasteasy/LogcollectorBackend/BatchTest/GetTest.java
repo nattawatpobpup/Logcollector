@@ -1,6 +1,6 @@
 package th.co.scb.fasteasy.LogcollectorBackend.BatchTest;
 
-import th.co.scb.fasteasy.LogcollectorBackend.Batch.Search;
+import th.co.scb.fasteasy.LogcollectorBackend.Batch.Get;
 import th.co.scb.fasteasy.LogcollectorBackend.Elastic.ElasticseachUtil;
 import th.co.scb.fasteasy.LogcollectorBackend.Model.Models;
 import org.junit.Before;
@@ -24,9 +24,9 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-public class SearchTest {
+public class GetTest {
     @InjectMocks
-    Search search;
+    Get get;
     @Mock
     StepContribution contribution;
     @Mock
@@ -77,7 +77,7 @@ public class SearchTest {
 
         ChunkContext chunkContext = createChunkContext("hits",hit);
         when(elasticseachUtil.getFasteasyEvents(any(),any())).thenReturn(hit);
-        search.execute(contribution,chunkContext);
+        get.execute(contribution,chunkContext);
     }
 
 }

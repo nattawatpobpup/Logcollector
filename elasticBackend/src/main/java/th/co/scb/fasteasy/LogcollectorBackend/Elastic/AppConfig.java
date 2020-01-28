@@ -15,6 +15,7 @@ import java.util.List;
 @Configuration
 public class AppConfig {
 
+//    @Bean
     public RestHighLevelClient elasticsearchClient(ElasticsearchConfig elasticsearchConfig) throws MalformedURLException {
         List<HttpHost> hosts = new ArrayList<>();
         for(String host : elasticsearchConfig.getHost()) {
