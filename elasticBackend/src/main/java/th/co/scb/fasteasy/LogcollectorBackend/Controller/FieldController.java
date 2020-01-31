@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter @Setter
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class FieldController {
 
