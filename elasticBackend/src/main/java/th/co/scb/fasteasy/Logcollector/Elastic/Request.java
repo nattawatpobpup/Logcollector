@@ -42,7 +42,7 @@ public class Request {
     @Autowired
     private FieldController fieldController;
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss");
+    private SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss.SSS");
     private ObjectMapper mapper = new ObjectMapper();
 
     public String[] sortString(String[] sort){

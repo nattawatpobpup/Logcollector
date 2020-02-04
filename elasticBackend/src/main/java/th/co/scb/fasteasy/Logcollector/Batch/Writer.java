@@ -34,7 +34,7 @@ public class Writer implements Tasklet {
     @Autowired
     private Models models;
     private Date date;
-    SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss");
+    SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss.SSS");
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception{
         String hitall = new String();
         Object[] hitsArray = (Object[]) chunkContext
@@ -73,24 +73,7 @@ public class Writer implements Tasklet {
                 String tmp = models.getFile();
                 models.setFile(tmp+=file+" ");
 
-//            List<String> srcFiles = Arrays.asList("E:/test1.txt", "E:/test2.txt");
-//            FileOutputStream fos = new FileOutputStream("E:/multiCompressed.zip");
-//            ZipOutputStream zipOut = new ZipOutputStream(fos);
-//            for (String srcFile : srcFiles) {
-//                File fileToZip = new File(srcFile);
-//                FileInputStream fis = new FileInputStream(fileToZip);
-//                ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
-//                zipOut.putNextEntry(zipEntry);
-//
-//                byte[] bytes = new byte[1024];
-//                int length;
-//                while((length = fis.read(bytes)) >= 0) {
-//                    zipOut.write(bytes, 0, length);
-//                }
-//                fis.close();
-//            }
-//            zipOut.close();
-//            fos.close();
+
         }
        return RepeatStatus.FINISHED;
     }

@@ -45,7 +45,10 @@ public class RequestTest {
     JobLauncher jobLauncher;
     @Mock
     JobExecution jobExecution;
+
     String Folder = "E:\\";
+    SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss.SSS");
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this); // Moving this below the next line fixed it...
@@ -279,7 +282,7 @@ public class RequestTest {
         FileWriter fw = new FileWriter(Folder+"testout.txt");
         fw.write("Welcome to javaTpoint.");
         fw.close();
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss");
+        
         JobExecution jobExecution = new JobExecution(0L);
         jobExecution.setStatus(BatchStatus.COMPLETED);
         when(jobLauncher.run(any(Job.class), any(JobParameters.class))).thenReturn(jobExecution);
@@ -329,7 +332,7 @@ public class RequestTest {
         FileWriter fw = new FileWriter(Folder+"testout.txt");
         fw.write("Welcome to javaTpoint.");
         fw.close();
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss");
+        
         JobExecution jobExecution = new JobExecution(0L);
         jobExecution.setStatus(BatchStatus.COMPLETED);
         when(jobLauncher.run(any(Job.class), any(JobParameters.class))).thenReturn(jobExecution);
@@ -379,7 +382,7 @@ public class RequestTest {
         FileWriter fw = new FileWriter(Folder+"testout.txt");
         fw.write("Welcome to javaTpoint.");
         fw.close();
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss");
+        
         JobExecution jobExecution = new JobExecution(0L);
         jobExecution.setStatus(BatchStatus.COMPLETED);
         when(jobLauncher.run(any(Job.class), any(JobParameters.class))).thenReturn(jobExecution);

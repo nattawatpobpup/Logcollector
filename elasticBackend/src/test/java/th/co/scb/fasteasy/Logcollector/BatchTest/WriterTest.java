@@ -63,7 +63,7 @@ public class WriterTest {
     @Test
     public void testCheckexecute() throws Exception {
         Deque<String> hit = new LinkedList<>();
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss");
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss.SSS");
 
         hit.add("{\n" +
                 "  \"_index\" : \"audit-2020.01.06\",\n" +
