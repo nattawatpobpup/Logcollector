@@ -2,10 +2,11 @@
 <body>
 
 <div class="column left">
-    <h1>Logcollector</h1>
+    <h2>Logcollector</h2><hr>
+
     <p>
 <!--///////////////////////index-->
-    <mat-form-field>
+    <mat-form-field class="w3-btn">
       <mat-label>Index</mat-label>
       <mat-select [(ngModel)]="inputData.Index">
         <mat-option *ngFor="let index of indexs" (click)="getfield(index.value)" [value]="index.value" >
@@ -15,7 +16,7 @@
     </mat-form-field>
 
 <!--//////////////////////////end index-->
-  <mat-form-field>
+  <mat-form-field class="w3-btn">
     <mat-label>Select Field</mat-label>
     <mat-select [formControl]="toppings" multiple [(ngModel)]="inputData.selectget">
       <mat-option *ngFor="let field of field" [value]="field.field">
@@ -36,8 +37,8 @@
         {{inputData.Key1}}{{inputData.Is1 ? ' != ' : ' : '}}{{inputData.Value1}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>
-      <mat-form-field class="half-width">
+
+      <mat-form-field class="half-width w5-btn">
         <mat-select placeholder="Key1"[(ngModel)]="inputData.Key1" name="field">
           <mat-option *ngFor="let field of field" [value]="field.field">
             {{field.field}}
@@ -45,13 +46,14 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width w5-btn">
         <mat-label>Value1</mat-label>
         <input matInput placeholder="add value" [(ngModel)]="inputData.Value1">
       </mat-form-field>
-      <mat-checkbox [(ngModel)]="inputData.Is1" value="not">Not</mat-checkbox>
-      <button mat-flat-button color="primary" (click)="checkstatus1(inputData.Key1,inputData.Value1)" >+</button>
-      <button mat-flat-button color="warn" (click)="clear1()" >CLEAR</button>
+      <mat-checkbox class="w5-btn" [(ngModel)]="inputData.Is1" value="not">Not</mat-checkbox>
+    <p>
+      <button class="w3-btn" mat-flat-button color="primary" (click)="checkstatus1(inputData.Key1,inputData.Value1)" >+</button>
+      <button class="w3-btn" mat-flat-button color="warn" (click)="clear1()" >CLEAR</button>
     </p>
   </mat-expansion-panel>
 
@@ -78,21 +80,22 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-    </p>
-    <mat-form-field class="half-width">
+    </p><p>
+    <mat-form-field class="half-width w5-btn">
       <mat-select placeholder="Key2"[(ngModel)]="inputData.Key2" name="field">
         <mat-option *ngFor="let field of field" [value]="field.field">
           {{field.field}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="half-width">
+    <mat-form-field class="half-width w5-btn">
       <mat-label>Value2</mat-label>
       <input matInput placeholder="add value" [(ngModel)]="inputData.Value2">
     </mat-form-field>
-    <mat-checkbox [(ngModel)]="inputData.Is2" value="not">Not</mat-checkbox>
-    <button mat-flat-button color="primary" (click)="checkstatus2(inputData.Type1,inputData.Key2,inputData.Value2)" >+</button>
-    <button mat-flat-button color="warn" (click)="clear2()" >CLEAR</button>
+    <mat-checkbox class="w5-btn" [(ngModel)]="inputData.Is2" value="not">Not</mat-checkbox>
+  </p>
+    <button class="w3-btn" mat-flat-button color="primary" (click)="checkstatus2(inputData.Type1,inputData.Key2,inputData.Value2)" >+</button>
+    <button class="w3-btn" mat-flat-button color="warn" (click)="clear2()" >CLEAR</button>
   </mat-expansion-panel>
 
 
@@ -121,7 +124,7 @@
 
     </p>
     <p>
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width w5-btn">
         <mat-select placeholder="Key3" [(ngModel)]="inputData.Key3" name="field">
           <mat-option *ngFor="let field of field" [value]="field.field">
             {{field.field}}
@@ -129,14 +132,15 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width w5-btn">
         <mat-label>Value3</mat-label>
         <input matInput placeholder="add value" [(ngModel)]="inputData.Value3">
       </mat-form-field>
-      <mat-checkbox [(ngModel)]="inputData.Is3">Not</mat-checkbox>
-      <button mat-flat-button color="primary" (click)="checkstatus3(inputData.Type2,inputData.Key3,inputData.Value3)" >+</button>
-      <button mat-flat-button color="warn" (click)="clear3()" >CLEAR</button>
+      <mat-checkbox class="w5-btn" [(ngModel)]="inputData.Is3">Not</mat-checkbox>
     </p>
+      <button class="w3-btn" mat-flat-button color="primary" (click)="checkstatus3(inputData.Type2,inputData.Key3,inputData.Value3)" >+</button>
+      <button class="w3-btn" mat-flat-button color="warn" (click)="clear3()" >CLEAR</button>
+
   </mat-expansion-panel>
 
 <!--//////////////////////4-->
@@ -162,7 +166,7 @@
 
     </p>
     <p>
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width w5-btn">
         <mat-select placeholder="Key3" [(ngModel)]="inputData.Key4" name="field">
           <mat-option *ngFor="let field of field" [value]="field.field">
             {{field.field}}
@@ -170,14 +174,15 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width w5-btn">
         <mat-label>Value3</mat-label>
         <input matInput placeholder="add value" [(ngModel)]="inputData.Value4">
       </mat-form-field>
-      <mat-checkbox [(ngModel)]="inputData.Is4">Not</mat-checkbox>
-      <button mat-flat-button color="primary" (click)="checkstatus4(inputData.Type3,inputData.Key4,inputData.Value4)" >+</button>
-      <button mat-flat-button color="warn" (click)="clear4()" >CLEAR</button>
+      <mat-checkbox class="w5-btn" [(ngModel)]="inputData.Is4">Not</mat-checkbox>
     </p>
+    <button class="w3-btn" mat-flat-button color="primary" (click)="checkstatus4(inputData.Type3,inputData.Key4,inputData.Value4)" >+</button>
+      <button class="w3-btn" mat-flat-button color="warn" (click)="clear4()" >CLEAR</button>
+
   </mat-expansion-panel>
 <!--    ////////////////////////5///////////-->
     <mat-expansion-panel *ngIf="status4" [expanded]="status4">
@@ -201,7 +206,7 @@
 
       </p>
       <p>
-        <mat-form-field class="half-width">
+        <mat-form-field class="half-width w5-btn">
           <mat-select placeholder="Key3" [(ngModel)]="inputData.Key5" name="field">
             <mat-option *ngFor="let field of field" [value]="field.field">
               {{field.field}}
@@ -209,13 +214,14 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field class="half-width">
+        <mat-form-field class="half-width w5-btn">
           <mat-label>Value3</mat-label>
           <input matInput placeholder="add value" [(ngModel)]="inputData.Value5">
         </mat-form-field>
-        <mat-checkbox [(ngModel)]="inputData.Is5">Not</mat-checkbox>
-        <button mat-flat-button color="warn" (click)="clear5()" >CLEAR</button>
+        <mat-checkbox class="w5-btn" [(ngModel)]="inputData.Is5">Not</mat-checkbox>
       </p>
+        <button class="w3-btn" mat-flat-button color="warn" (click)="clear5()" >CLEAR</button>
+
     </mat-expansion-panel>
 
 
@@ -226,27 +232,29 @@
 <!--    //////////////////////time-->
     <p>
 
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width2 w3-btn" >
         <input matInput type="date" placeholder="start day"  [(ngModel)]="inputData.Daygte">
       </mat-form-field>
 
-      <mat-form-field class="half-width">
+      <mat-form-field class="half-width2 w3-btn">
         <input matInput type="time" placeholder="start time" [(ngModel)]="inputData.Timegte">
       </mat-form-field>
     </p>
-  <mat-form-field class="half-width">
+  <mat-form-field class="half-width2 w3-btn">
     <input matInput type="date" placeholder="end day"  [(ngModel)]="inputData.Daylte">
   </mat-form-field>
 
-    <mat-form-field class="half-width">
+    <mat-form-field class="half-width2 w3-btn">
       <input matInput type="time" placeholder="end time" [(ngModel)]="inputData.Timelte">
     </mat-form-field>
   <p>
 
 
     <br>
-    <button mat-flat-button color="primary" (click)="get()" >SEARCH</button>
-    <button mat-flat-button color="warn" (click)="clear()" >CLEAR</button>
+
+    <button class="w3-btn" mat-flat-button color="primary" (click)="get()" >SEARCH</button>
+    <button class="w3-btn" mat-flat-button color="warn" (click)="clear()">CLEAR</button>
+
     <p>
       <mat-form-field class="full-width">
       <mat-label>Path Save</mat-label>
@@ -254,7 +262,7 @@
       </mat-form-field>
     </p>
     <mat-accordion>
-    <mat-expansion-panel>
+    <mat-expansion-panel class="width55">
       <mat-expansion-panel-header>
         <mat-panel-title>
           EXPORT FILE
@@ -265,7 +273,7 @@
 
 
 
-    <mat-expansion-panel >
+    <mat-expansion-panel class="width55">
       <mat-expansion-panel-header>
         <mat-panel-title>
           EXPORT FILE BY CORRELATION_ID
