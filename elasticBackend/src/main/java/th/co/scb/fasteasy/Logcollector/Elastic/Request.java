@@ -172,7 +172,7 @@ public class Request {
             models.setTimegte(actualObj.get("Timegte").textValue());
             models.setDaylte(actualObj.get("Daylte").textValue());
             models.setTimelte(actualObj.get("Timelte").textValue());
-            models.setFolder(actualObj.get("foldersave").textValue());
+//            models.setFolder(actualObj.get("foldersave").textValue());
         }else{
             throw new Exception("Data input isn't JSON");
         }
@@ -197,9 +197,7 @@ public class Request {
         models.setValue(value);
     }
     public void save() throws Exception {
-        if(models.getFolder().equals("")){
-            throw new Exception("please insert path");
-        }else if(models.getIndex().equals("audit*")) {
+        if(models.getIndex().equals("audit*")) {
             models.setSelect(fieldController.getAudits());
         }else if(models.getIndex().equals("fe-request-log*")){
             models.setSelect(fieldController.getFerequsetlogs());
@@ -275,9 +273,7 @@ public class Request {
         String[] key = {"","","","",""};
         String[] value = {"","","","",""};
         String[] type = {"","","",""};
-        if(models.getFolder().equals("")){
-            throw new Exception("please insert path");
-        }else if(models.getIndex().equals("audit*")){
+        if(models.getIndex().equals("audit*")){
             models.setSelect(new String[]{"CORRELATION_ID"});
         }else if(models.getIndex().equals("fe-request-log*")||models.getIndex().equals("fe-api-log*")){
             models.setSelect(new String[]{"api_correlationid"});

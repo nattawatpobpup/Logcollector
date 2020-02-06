@@ -42,12 +42,13 @@ import {
 import {routing} from './app.routes';
 import { RouterModule, Routes } from '@angular/router';
 import { QueryComponent } from './query/query.component';
+import { Query2Component } from './query2/query2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QueryComponent
-
+    QueryComponent,
+    Query2Component
   ],
   imports: [
     BrowserModule,

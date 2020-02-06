@@ -356,14 +356,7 @@ public class RequestTest {
         file.delete();
     }
 
-    @Test
-    public void testCheckSaveNotHavePath() throws Exception {
-        when(models.getFolder()).thenReturn("");
-        Exception thrown = assertThrows(Exception.class,
-                () -> request.save());
 
-        assertEquals("please insert path",thrown.getMessage());
-    }
 //==============================save========================
 
     //==============================saveCorrelationID========================
@@ -470,13 +463,7 @@ public class RequestTest {
         when(models.getHits()).thenReturn(hit);
         request.saveCorrelationID();
     }
-    @Test
-    public void testChecksaveCorrelationIDNotHavePath() throws Exception {
-        when(models.getFolder()).thenReturn("");
-        Exception thrown = assertThrows(Exception.class,
-                () -> request.saveCorrelationID());
-        assertEquals("please insert path",thrown.getMessage());
-    }
+
 //==============================saveCorrelationID========================
 
 }

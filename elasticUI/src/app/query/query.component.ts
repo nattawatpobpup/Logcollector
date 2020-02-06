@@ -59,7 +59,6 @@ export class QueryComponent implements OnInit {
 
     selectget: '',
 
-    foldersave: '',
 
   };
   indexs: Index[] = [
@@ -95,25 +94,19 @@ export class QueryComponent implements OnInit {
       this.fieldService.getAuditfield().subscribe(data => {
         this.field = data;
         this.inputData.selectget = '';
-
         this.clear1();
-        console.log(this.field);
       });
     } else if (value === 'fe-request-log*') {
       this.fieldService.getFeRequestLodfield().subscribe(data => {
         this.field = data;
         this.inputData.selectget = '';
         this.clear1();
-        console.log(this.field);
-
       });
     } else if (value === 'fe-api-log*') {
       this.fieldService.getFeApiLodfield().subscribe(data => {
         this.field = data;
         this.inputData.selectget = '';
         this.clear1();
-        console.log(this.field);
-
       });
     }
 
@@ -126,7 +119,7 @@ export class QueryComponent implements OnInit {
       this.data = null;
       this.httpClient.post(this.http + 'gets', this.inputData)
         .subscribe(data => {
-            console.log('SEARCH COMPLETE', data);
+            console.log('SEARCH COMPLETE');
             this.snackBar.open('SEARCH COMPLETE', 'OK', {duration: 3000});
             this.data = Object.values(data);
             this.loading = false;
@@ -147,7 +140,7 @@ export class QueryComponent implements OnInit {
       this.data = null;
       this.httpClient.post(this.http + 'save' , this.inputData)
         .subscribe(data => {
-            console.log('EXPORT OK', data);
+            console.log('EXPORT OK');
             this.snackBar.open('COMPLETE', 'OK', {duration: 3000});
             this.data = Object.values(data);
             this.loading = false;
@@ -167,9 +160,8 @@ export class QueryComponent implements OnInit {
       this.data = null;
       this.httpClient.post(this.http + 'saveCorrelationID' , this.inputData)
         .subscribe(data => {
-            console.log('EXPORT BY CORRELATION_ID OK', data);
+            console.log('EXPORT BY CORRELATION_ID OK');
             this.snackBar.open('COMPLETE', 'OK', {duration: 3000});
-
             this.data = Object.values(data);
             this.loading = false;
           }, error => {

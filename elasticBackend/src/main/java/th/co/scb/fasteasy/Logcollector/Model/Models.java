@@ -3,6 +3,7 @@ package th.co.scb.fasteasy.Logcollector.Model;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -20,6 +21,7 @@ public class Models {
     private String[] select;
     private String gte;
     private String lte;
+    @Value("${es.config.folder}")
     private String folder;
     private String fileName;
     private String daygte;

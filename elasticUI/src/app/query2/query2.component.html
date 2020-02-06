@@ -1,0 +1,60 @@
+<html>
+<body>
+
+<div class="column left">
+  <h2>Logcollector</h2><hr>
+
+
+  <!--    ////////////////////////1////////////////-->
+
+
+
+      <mat-form-field class="full-width w5-btn">
+        <mat-label>USER_ID</mat-label>
+        <input matInput placeholder="add USER_ID" [(ngModel)]="inputData.Value1">
+      </mat-form-field>
+
+
+
+
+
+
+  <!--    //////////////////////time-->
+  <p>
+
+    <mat-form-field class="half-width2 w3-btn" >
+      <input matInput type="date" placeholder="start day"  [(ngModel)]="inputData.Daygte">
+    </mat-form-field>
+
+    <mat-form-field class="half-width2 w3-btn">
+      <input matInput type="time" placeholder="start time" [(ngModel)]="inputData.Timegte">
+    </mat-form-field>
+  </p>
+  <mat-form-field class="half-width2 w3-btn">
+    <input matInput type="date" placeholder="end day"  [(ngModel)]="inputData.Daylte">
+  </mat-form-field>
+
+  <mat-form-field class="half-width2 w3-btn">
+    <input matInput type="time" placeholder="end time" [(ngModel)]="inputData.Timelte">
+  </mat-form-field>
+
+
+
+  <p>
+      <button  mat-flat-button color="primary" (click)="savescorrelation()" >EXPORT</button>
+  </p>
+
+
+</div>
+
+<div class="column right" >
+
+  <div *ngIf="loading"><mat-spinner></mat-spinner></div>
+
+  <!--      <pre>Data Obtained is: {{ data | json }}</pre>-->
+
+</div>
+
+
+</body>
+</html>
