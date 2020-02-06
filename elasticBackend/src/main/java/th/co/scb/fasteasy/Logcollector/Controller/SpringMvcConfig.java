@@ -19,7 +19,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     }
 
 //    public void addViewControllers(ViewControllerRegistry registry) {
-//        registry.addViewController("/admin").setViewName("admin/index");
+//        registry.addViewController("/test").setViewName("redirect:/admin");
 //
 //    }
 
