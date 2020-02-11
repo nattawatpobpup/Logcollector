@@ -1,6 +1,7 @@
 package th.co.scb.fasteasy.Logcollector;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import th.co.scb.fasteasy.Logcollector.Controller.FieldController;
 import th.co.scb.fasteasy.Logcollector.Elastic.Request;
 import th.co.scb.fasteasy.Logcollector.Model.Models;
@@ -46,7 +47,7 @@ public class RequestTest {
     @Mock
     JobExecution jobExecution;
 
-    String Folder = "E:\\";
+    String Folder = "E:/";
     SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd.HH.mm.ss.SSS");
 
     @Before
@@ -396,7 +397,7 @@ public class RequestTest {
         when(models.getFile()).thenReturn(Folder+"testout.txt ");
         when(models.getDate()).thenReturn(new Date());
         File file = new File(models.getFolder() + "/"
-                +ft.format(models.getDate())+"-50BBB92B-7FD6-49B2-9C8C-69FE1BED8DF5"
+                +ft.format(models.getDate())
                 +".zip");
         request.saveCorrelationID();
         file.delete();
@@ -413,6 +414,9 @@ public class RequestTest {
                 "    \"CORRELATION_ID\" : \"50BBB92B-7FD6-49B2-9C8C-69FE1BED8DF5\"\n" +
                 "  }\n" +
                 "}");
+        FileWriter fw = new FileWriter(Folder+"testout.txt");
+        fw.write("Welcome to javaTpoint.");
+        fw.close();
         JobExecution jobExecution = new JobExecution(0L);
         jobExecution.setStatus(BatchStatus.COMPLETED);
         when(jobLauncher.run(any(Job.class), any(JobParameters.class))).thenReturn(jobExecution);
@@ -430,7 +434,13 @@ public class RequestTest {
         when(fieldController.getFeapilogs()).thenReturn(field);
         when(models.getSelect()).thenReturn(field);
         when(models.getHits()).thenReturn(hit);
+        when(models.getFile()).thenReturn(Folder+"testout.txt ");
+        when(models.getDate()).thenReturn(new Date());
+        File file = new File(models.getFolder() + "/"
+                +ft.format(models.getDate())
+                +".zip");
         request.saveCorrelationID();
+        file.delete();
     }
     @Test
     public void testChecksaveCorrelationIDFeapilog() throws Exception {
@@ -444,6 +454,9 @@ public class RequestTest {
                 "    \"CORRELATION_ID\" : \"50BBB92B-7FD6-49B2-9C8C-69FE1BED8DF5\"\n" +
                 "  }\n" +
                 "}");
+        FileWriter fw = new FileWriter(Folder+"testout.txt");
+        fw.write("Welcome to javaTpoint.");
+        fw.close();
         JobExecution jobExecution = new JobExecution(0L);
         jobExecution.setStatus(BatchStatus.COMPLETED);
         when(jobLauncher.run(any(Job.class), any(JobParameters.class))).thenReturn(jobExecution);
@@ -461,7 +474,13 @@ public class RequestTest {
         when(fieldController.getFeapilogs()).thenReturn(field);
         when(models.getSelect()).thenReturn(field);
         when(models.getHits()).thenReturn(hit);
+        when(models.getFile()).thenReturn(Folder+"testout.txt ");
+        when(models.getDate()).thenReturn(new Date());
+        File file = new File(models.getFolder() + "/"
+                +ft.format(models.getDate())
+                +".zip");
         request.saveCorrelationID();
+        file.delete();
     }
 
 //==============================saveCorrelationID========================

@@ -128,6 +128,31 @@ public class Request {
             throw new Exception("ERROR");
         }
     }
+    private void writeZipfile() throws Exception {
+        String[] srcFiles = models.getFile().split(" ");
+        FileOutputStream fos = new FileOutputStream(models.getFolder()+ft.format(models.getDate())+".zip");
+        ZipOutputStream zipOut = new ZipOutputStream(fos);
+        for (String srcFile : srcFiles) {
+            File fileToZip = new File(srcFile);
+            FileInputStream fis = new FileInputStream(fileToZip);
+            ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
+            zipOut.putNextEntry(zipEntry);
+
+            byte[] bytes = new byte[1024];
+            int length;
+            while((length = fis.read(bytes)) >= 0) {
+                zipOut.write(bytes, 0, length);
+            }
+            fis.close();
+        }
+        zipOut.close();
+        fos.close();
+        for(int i=0;i<srcFiles.length;i++){
+            File files = new File(srcFiles[i]);
+            files.delete();
+        }
+    }
+
     public void setData(String data) throws Exception {
         final String decoded = URLDecoder.decode(data, "UTF-8");        // DECODE UTF8
         data = decoded;
@@ -241,33 +266,14 @@ public class Request {
             }
 
         }
-        String[] srcFiles = models.getFile().split(" ");
-        FileOutputStream fos = new FileOutputStream(models.getFolder()+ft.format(models.getDate())+".zip");
-            ZipOutputStream zipOut = new ZipOutputStream(fos);
-            for (String srcFile : srcFiles) {
-                File fileToZip = new File(srcFile);
-                FileInputStream fis = new FileInputStream(fileToZip);
-                ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
-                zipOut.putNextEntry(zipEntry);
-
-                byte[] bytes = new byte[1024];
-                int length;
-                while((length = fis.read(bytes)) >= 0) {
-                    zipOut.write(bytes, 0, length);
-                }
-                fis.close();
-            }
-            zipOut.close();
-            fos.close();
-         for(int i=0;i<srcFiles.length;i++){
-             File files = new File(srcFiles[i]);
-             files.delete();
-        }
+        writeZipfile();
         models.setGte(models.getDaygte()+" "+models.getTimegte()+":00");
         models.setLte(models.getDaylte()+" "+models.getTimelte()+":00");
         System.out.println(models.getGte());
         System.out.println(models.getLte()+"\n");
     }
+
+
     public String[] saveCorrelationID() throws Exception {
         String[] is = {"false","false","false","false","false"};
         String[] key = {"","","","",""};
@@ -304,32 +310,29 @@ public class Request {
         String[] fieldFeapiLog = fieldController.getFeapilogs();
         models.setType(type);
         models.setIs(is);
+        models.setFile(new String());
         for (int i=0; i<newList.size(); i++) {
-            models.setFile(new String());
             models.setDate(new Date());
             value[0] = newList.get(i);
+            models.setValue(value);
             key[0] = "CORRELATION_ID";
+            models.setKey(key);
             models.setIndex("audit*");
             models.setSelect(fieldAudit);
             models.setSchema(schemaAudit);
             models.setFileName(setFileName(newList.get(i), models.getIndex()));
-            models.setKey(key);
-            models.setValue(value);
             JobParameters JobAudit = new JobParametersBuilder().addLong("time", System.currentTimeMillis()).toJobParameters();
             JobExecution JobExecutionAudit = jobLauncher.run(jobSave, JobAudit);
             checkStatus(JobExecutionAudit);
-
             key[0] = "api_correlationid";
+            models.setKey(key);
             models.setIndex("fe-request-log*");
             models.setSelect(fieldFequestLog);
             models.setSchema(schemaFequestLog);
             models.setFileName(setFileName(newList.get(i), models.getIndex()));
-            models.setKey(key);
-            models.setValue(value);
             JobParameters JobRequestlog = new JobParametersBuilder().addLong("time", System.currentTimeMillis()).toJobParameters();
             JobExecution JobExecutionFerequestlog = jobLauncher.run(jobSave, JobRequestlog);
             checkStatus(JobExecutionFerequestlog);
-
             models.setIndex("fe-api-log*");
             models.setSelect(fieldFeapiLog);
             models.setSchema(schemaFeapiLog);
@@ -337,30 +340,8 @@ public class Request {
             JobParameters JobApilog = new JobParametersBuilder().addLong("time", System.currentTimeMillis()).toJobParameters();
             JobExecution JobExecutionFeapilog = jobLauncher.run(jobSave, JobApilog);
             checkStatus(JobExecutionFeapilog);
-
-            String[] srcFiles = models.getFile().split(" ");
-            FileOutputStream fos = new FileOutputStream(models.getFolder()+ft.format(models.getDate())+"-"+newList.get(i)+".zip");
-            ZipOutputStream zipOut = new ZipOutputStream(fos);
-            for (String srcFile : srcFiles) {
-                File fileToZip = new File(srcFile);
-                FileInputStream fis = new FileInputStream(fileToZip);
-                ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
-                zipOut.putNextEntry(zipEntry);
-
-                byte[] bytes = new byte[1024];
-                int length;
-                while((length = fis.read(bytes)) >= 0) {
-                    zipOut.write(bytes, 0, length);
-                }
-                fis.close();
-            }
-            zipOut.close();
-            fos.close();
-            for(int j=0;j<srcFiles.length;j++){
-                File files = new File(srcFiles[j]);
-                files.delete();
-            }
         }
+        writeZipfile();
         return newList.toArray(new String[0]);
     }
 
