@@ -14,6 +14,7 @@ import java.util.List;
 @Getter @Setter
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/logcollector")
 public class FieldController {
 
     String[] audits = {"@timestamp","@version","ACCESS_ID","ACCOUNT_FROM","ACCOUNT_FROM_NAME",

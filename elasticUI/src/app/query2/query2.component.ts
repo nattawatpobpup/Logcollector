@@ -21,7 +21,7 @@ export interface Type {
 })
 export class Query2Component implements OnInit {
   // tslint:disable-next-line:ban-types
-  http: String = 'http://localhost:8080/';
+  http: String = 'http://localhost:8080/logcollector/';
   loading: boolean;
   inputData: any = {
     Index: 'audit*',
